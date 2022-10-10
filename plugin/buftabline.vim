@@ -197,6 +197,7 @@ augroup END
 for s:n in range(1, g:buftabline_plug_max) + ( g:buftabline_plug_max > 0 ? [-1] : [] )
 	let s:b = s:n == -1 ? -1 : s:n - 1
 	execute printf("noremap <silent> <Plug>BufTabLine.Go(%d) :<C-U>exe 'b'.get(buftabline#user_buffers(),%d,'')<cr>", s:n, s:b)
+	execute printf("noremap <silent> <Plug>BufTabLine.Delete(%d) :<C-U>exe 'bd'.get(buftabline#user_buffers(),%d,'')<cr>", s:n, s:b)
 endfor
 unlet! s:n s:b
 
